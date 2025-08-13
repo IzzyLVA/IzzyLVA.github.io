@@ -43,26 +43,36 @@ main, section {
     z-index: 10;
 }
 
-.sidebar:hover {
-    left: 0;
+.sidebar {
+    position: fixed;
+    left: -120px; /* slightly wider hidden position */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;            /* increased spacing between links */
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px 15px;   /* more padding for bigger feel */
+    border-right: 2px solid cyan;
+    transition: left 0.3s ease;
+    z-index: 10;
 }
 
 .sidebar a {
     text-decoration: none;
     color: cyan;
-    padding: 12px 20px;
+    padding: 16px 25px;    /* larger clickable area */
     border: 2px solid cyan;
     font-weight: bold;
     background: rgba(0, 255, 255, 0.05);
     transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+    font-size: 1.1rem;     /* slightly larger text */
 }
 
-.sidebar a:hover {
-    transform: scale(1.2);
-    background: cyan;
-    color: black;
-    box-shadow: 0 0 15px cyan, 0 0 25px cyan;
+.sidebar:hover {
+    left: 0; /* still slides fully into view */
 }
+
 
 .sidebar a.active {
     background: cyan;
@@ -255,6 +265,7 @@ main, section {
     color: cyan;
     text-decoration: none;
 }
+
 
 
 
