@@ -1,29 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
-    const nameElement = document.getElementById("scrambleName");
-    const originalText = nameElement.textContent;
+    // Smooth fade-in effect for sections
+    const sections = document.querySelectorAll("section, header, footer");
 
-    function scrambleText() {
-        let iteration = 0;
-        const interval = setInterval(() => {
-            nameElement.textContent = originalText
-                .split("")
-                .map((letter, index) => {
-                    if (index < iteration) {
-                        return originalText[index];
-                    }
-                    return letters[Math.floor(Math.random() * letters.length)];
-                })
-                .join("");
-
-            if (iteration >= originalText.length) {
-                clearInterval(interval);
+    const revealOnScroll = () => {
+        sections.forEach((sec) => {
+            const rect = sec.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 50) {
+                sec.classList.add("visible");
             }
+        });
+    };
 
-            iteration += 1 / 2; // Lower = slower scramble
-        }, 50);
-    }
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
 
-    scrambleText(); // run once on load
-    nameElement.addEventListener("mouseenter", scrambleText); // run on hover
+    // Glow pulse effect on name
+    const name = document.querySelector(".glow");
+    setInterval(() => {
+        name.classList.toggle("active-glow");
+    }, 2000);
 });
