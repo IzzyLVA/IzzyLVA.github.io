@@ -114,6 +114,27 @@ main, section {
     }
 }
 
+@keyframes slideInText {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInImage {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 
 .portfolio-section {
     text-align: center;
@@ -175,8 +196,20 @@ main, section {
     box-shadow: 0 0 20px cyan, 0 0 40px cyan;
 }
 
+.contact-section h2 {
+    font-size: 2rem;
+    color: cyan;
+    text-shadow: 0 0 10px cyan;
+    margin-bottom: 20px;
+}
+
+.contact-section p a {
+    color: cyan;
+    text-decoration: none;
+}
+
 #about {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     min-height: 80vh;
@@ -197,7 +230,9 @@ main, section {
 .about-text {
     flex: 1;
     min-width: 300px;
+    max-width: 600px;
     text-align: left;
+    padding-left: 20px;
     opacity: 0;
     animation: slideInText 1s ease forwards;
     animation-delay: 0.5s;
@@ -230,26 +265,9 @@ main, section {
     border: 2px solid cyan;
     box-shadow: 0 0 10px cyan, 0 0 20px cyan;
     object-fit: cover;
+    transition: box-shadow 0.3s ease;
 }
 
-@keyframes slideInText {
-    from {
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideInImage {
-    from {
-        transform: translateX(100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.about-image img:hover {
+    box-shadow: 0 0 20px cyan, 0 0 40px cyan, 0 0 60px cyan;
 }
