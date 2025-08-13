@@ -179,32 +179,29 @@ main, section {
 .portfolio-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: center;   /* center heading and grid */
     padding: 60px 20px;
     color: cyan;
 }
 
 .portfolio-section h2 {
     font-size: 2.5rem;
-    color: cyan;
     text-shadow: 0 0 10px cyan;
     margin-bottom: 40px;
     text-align: center;
 }
 
+/* Grid container */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    max-width: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* makes columns responsive */
+    gap: 30px;
     width: 100%;
-    justify-items: center;
+    max-width: 1000px; /* keeps the grid from stretching too wide */
 }
 
-
+/* Portfolio cards */
 .portfolio-card {
-    position: relative;
     border: 2px solid cyan;
     overflow: hidden;
     display: flex;
@@ -213,6 +210,9 @@ main, section {
     text-decoration: none;
     box-shadow: 0 0 10px cyan;
     transition: transform 0.3s, box-shadow 0.3s;
+    background: black;
+    width: 100%;  /* lets grid control the width */
+    max-width: 280px; /* optional: keeps cards uniform */
 }
 
 .portfolio-card img {
@@ -228,20 +228,21 @@ main, section {
 }
 
 .project-title {
-    position: absolute;
-    bottom: 15px;
     background: rgba(0, 255, 255, 0.15);
     padding: 5px 10px;
     color: cyan;
     font-weight: bold;
     text-shadow: 0 0 5px cyan;
     border: 1px solid cyan;
+    margin-top: -35px; /* positions title over bottom of image */
+    z-index: 2;
 }
 
 .portfolio-card:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px cyan, 0 0 40px cyan;
 }
+
 
 .contact-section h2 {
     font-size: 2rem;
@@ -254,5 +255,6 @@ main, section {
     color: cyan;
     text-decoration: none;
 }
+
 
 
