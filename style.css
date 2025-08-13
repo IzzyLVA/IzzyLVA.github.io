@@ -93,47 +93,89 @@ main, section {
 }
 
 @keyframes slideInLeft {
-    from {
-        left: -150px;
-        opacity: 0;
-    }
-    to {
-        left: 0;
-        opacity: 1;
-    }
+    from { left: -150px; opacity: 0; }
+    to   { left: 0; opacity: 1; }
 }
 
 @keyframes fadeUp {
-    from {
-        transform: translate(-50%, -40%);
-        opacity: 0;
-    }
-    to {
-        transform: translate(-50%, -50%);
-        opacity: 1;
-    }
+    from { transform: translate(-50%, -40%); opacity: 0; }
+    to   { transform: translate(-50%, -50%); opacity: 1; }
 }
 
 @keyframes slideInText {
-    from {
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+    from { transform: translateX(-80px); opacity: 0; }
+    to   { transform: translateX(0); opacity: 1; }
 }
 
 @keyframes slideInImage {
-    from {
-        transform: translateX(100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+    from { transform: translateX(80px); opacity: 0; }
+    to   { transform: translateX(0); opacity: 1; }
+}
+
+#about {
+    display: none;
+    min-height: 80vh;
+    padding: 80px 20px;
+    color: cyan;
+    background: black;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1000px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 550px;
+    text-align: left;
+    opacity: 0;
+    animation: slideInText 1s forwards;
+    animation-delay: 0.5s;
+}
+
+.about-text h2 {
+    font-size: 3rem;
+    color: cyan;
+    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px cyan;
+}
+
+.about-image {
+    flex-shrink: 0;
+    opacity: 0;
+    animation: slideInImage 1s forwards;
+    animation-delay: 0.8s;
+}
+
+.about-image img {
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+    border: 2px solid cyan;
+    box-shadow: 0 0 10px cyan, 0 0 20px cyan;
+    object-fit: cover;
+    transition: box-shadow 0.3s ease;
+}
+
+.about-image img:hover {
+    box-shadow: 0 0 20px cyan, 0 0 40px cyan, 0 0 60px cyan;
 }
 
 .portfolio-section {
@@ -206,59 +248,4 @@ main, section {
 .contact-section p a {
     color: cyan;
     text-decoration: none;
-}
-
-#about {
-    display: none;
-    min-height: 80vh;
-    padding: 80px 20px;
-    background: black;
-    color: cyan;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.about-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 60px;
-    max-width: 1000px;
-    align-items: center;
-}
-
-.about-text {
-    max-width: 550px;
-    text-align: left;
-    opacity: 0;
-    animation: slideInText 1s forwards;
-    animation-delay: 0.5s;
-}
-
-.about-image {
-    opacity: 0;
-    animation: slideInImage 1s forwards;
-    animation-delay: 0.8s;
-}
-
-.about-image img {
-    width: 300px;
-    border-radius: 15px;
-    border: 2px solid cyan;
-    box-shadow: 0 0 10px cyan, 0 0 20px cyan;
-    object-fit: cover;
-}
-
-@keyframes slideInText {
-    from { transform: translateX(-80px); opacity: 0; }
-    to   { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slideInImage {
-    from { transform: translateX(80px); opacity: 0; }
-    to   { transform: translateX(0); opacity: 1; }
-}
-
-.about-image img:hover {
-    box-shadow: 0 0 20px cyan, 0 0 40px cyan, 0 0 60px cyan;
 }
