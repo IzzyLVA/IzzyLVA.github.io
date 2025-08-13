@@ -11,6 +11,14 @@ body {
     overflow: hidden;
 }
 
+main, section {
+    display: none;
+}
+
+#home {
+    display: block;
+}
+
 #particles {
     position: fixed;
     top: 0;
@@ -154,3 +162,4 @@ body {
     transform: scale(1.05);
     box-shadow: 0 0 20px cyan, 0 0 40px cyan;
 }
+
