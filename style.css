@@ -45,14 +45,14 @@ main, section {
 
 .sidebar {
     position: fixed;
-    left: -120px; /* slightly wider hidden position */
+    left: -120px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 25px;            /* increased spacing between links */
+    gap: 25px;
     background: rgba(0, 0, 0, 0.6);
-    padding: 15px 15px;   /* more padding for bigger feel */
+    padding: 15px 15px;
     border-right: 2px solid cyan;
     transition: left 0.3s ease;
     z-index: 10;
@@ -61,16 +61,16 @@ main, section {
 .sidebar a {
     text-decoration: none;
     color: cyan;
-    padding: 16px 25px;    /* larger clickable area */
+    padding: 16px 25px;
     border: 2px solid cyan;
     font-weight: bold;
     background: rgba(0, 255, 255, 0.05);
     transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
-    font-size: 1.1rem;     /* slightly larger text */
+    font-size: 1.1rem;
 }
 
 .sidebar:hover {
-    left: 0; /* still slides fully into view */
+    left: 0;
 }
 
 
@@ -189,7 +189,7 @@ main, section {
 .portfolio-section {
     display: flex;
     flex-direction: column;
-    align-items: center;   /* center heading and grid */
+    align-items: center;
     padding: 60px 20px;
     color: cyan;
 }
@@ -201,16 +201,14 @@ main, section {
     text-align: center;
 }
 
-/* Grid container */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* makes columns responsive */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     width: 100%;
-    max-width: 1000px; /* keeps the grid from stretching too wide */
+    max-width: 1000px;
 }
 
-/* Portfolio cards */
 .portfolio-card {
     border: 2px solid cyan;
     overflow: hidden;
@@ -221,8 +219,8 @@ main, section {
     box-shadow: 0 0 10px cyan;
     transition: transform 0.3s, box-shadow 0.3s;
     background: black;
-    width: 100%;  /* lets grid control the width */
-    max-width: 280px; /* optional: keeps cards uniform */
+    width: 100%;
+    max-width: 280px;
 }
 
 .portfolio-card img {
@@ -244,7 +242,7 @@ main, section {
     font-weight: bold;
     text-shadow: 0 0 5px cyan;
     border: 1px solid cyan;
-    margin-top: -35px; /* positions title over bottom of image */
+    margin-top: -35px;
     z-index: 2;
 }
 
@@ -254,18 +252,72 @@ main, section {
 }
 
 
+.contact-section {
+    display: none;
+    min-height: 80vh;
+    padding: 80px 20px;
+    color: cyan;
+    background: black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .contact-section h2 {
-    font-size: 2rem;
-    color: cyan;
-    text-shadow: 0 0 10px cyan;
-    margin-bottom: 20px;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
 }
 
-.contact-section p a {
-    color: cyan;
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.contact-card {
+    border: 2px solid cyan;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-decoration: none;
+    box-shadow: 0 0 10px cyan;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: black;
+    width: 100%;
+    max-width: 250px;
+    padding: 15px;
+    border-radius: 10px;
 }
 
+.contact-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s, filter 0.3s;
+}
 
+.contact-card:hover img {
+    transform: scale(1.1);
+    filter: brightness(1) invert(0);
+}
 
+.contact-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: cyan;
+    text-shadow: 0 0 5px cyan;
+}
 
+.contact-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px cyan, 0 0 40px cyan;
+}
