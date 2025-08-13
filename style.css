@@ -177,15 +177,20 @@ main, section {
 }
 
 .portfolio-section {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 60px 20px;
+    color: cyan;
 }
 
 .portfolio-section h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: cyan;
     text-shadow: 0 0 10px cyan;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 .portfolio-grid {
@@ -193,8 +198,10 @@ main, section {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
     max-width: 1000px;
-    margin: 0 auto;
+    width: 100%;
+    justify-items: center;
 }
+
 
 .portfolio-card {
     position: relative;
@@ -247,4 +254,5 @@ main, section {
     color: cyan;
     text-decoration: none;
 }
+
 
