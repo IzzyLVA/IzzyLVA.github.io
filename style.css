@@ -70,14 +70,14 @@ main, section {
 }
 
 .center-content h1 {
-    font-size: 3rem;
-    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+    font-size: 5rem;
+    text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 30px cyan;
 }
 
 .center-content p {
-    margin-top: 10px;
-    font-size: 1.2rem;
-    text-shadow: 0 0 5px cyan;
+    margin-top: 15px;
+    font-size: 2rem;
+    text-shadow: 0 0 5px cyan, 0 0 10px cyan;
 }
 
 @keyframes slideInLeft {
@@ -162,4 +162,5 @@ main, section {
     transform: scale(1.05);
     box-shadow: 0 0 20px cyan, 0 0 40px cyan;
 }
+
 
