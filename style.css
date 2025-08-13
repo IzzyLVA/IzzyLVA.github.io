@@ -92,11 +92,6 @@ main, section {
     text-shadow: 0 0 5px cyan, 0 0 10px cyan;
 }
 
-@keyframes slideInLeft {
-    from { left: -150px; opacity: 0; }
-    to   { left: 0; opacity: 1; }
-}
-
 @keyframes fadeUp {
     from { transform: translate(-50%, -40%); opacity: 0; }
     to   { transform: translate(-50%, -50%); opacity: 1; }
@@ -118,14 +113,11 @@ main, section {
     padding: 80px 20px;
     color: cyan;
     background: black;
-
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
 }
 
 .about-container {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     gap: 60px;
     max-width: 1000px;
