@@ -113,7 +113,12 @@ main, section {
     padding: 80px 20px;
     color: cyan;
     background: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .about-container {
     display: flex;
@@ -124,6 +129,7 @@ main, section {
     width: 100%;
     flex-wrap: wrap;
 }
+
 
 .about-text {
     flex: 1;
@@ -241,3 +247,4 @@ main, section {
     color: cyan;
     text-decoration: none;
 }
+
