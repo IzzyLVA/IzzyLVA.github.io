@@ -85,3 +85,17 @@ document.addEventListener("DOMContentLoaded", () => {
     scrambleText();
     nameElement.addEventListener("mouseenter", scrambleText);
 });
+
+document.querySelectorAll('.sidebar a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+
+        document.querySelectorAll('main, section').forEach(sec => sec.style.display = 'none');
+
+        const targetId = this.getAttribute('href').substring(1);
+        document.getElementById(targetId).style.display = 'block';
+    });
+});
