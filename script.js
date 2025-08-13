@@ -33,7 +33,6 @@ function updateParticles() {
     particles.forEach(p => {
         p.x += p.dx;
         p.y += p.dy;
-
         if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
     });
@@ -67,41 +66,38 @@ document.addEventListener("DOMContentLoaded", () => {
             nameElement.textContent = originalText
                 .split("")
                 .map((letter, index) => {
-                    if (index < iteration) {
-                        return originalText[index];
-                    }
+                    if (index < iteration) return originalText[index];
                     return letters[Math.floor(Math.random() * letters.length)];
                 })
                 .join("");
 
-            if (iteration >= originalText.length) {
-                clearInterval(interval);
-            }
-
+            if (iteration >= originalText.length) clearInterval(interval);
             iteration += 1 / 2;
         }, 50);
     }
 
     scrambleText();
     nameElement.addEventListener("mouseenter", scrambleText);
-});
 
-document.querySelectorAll('.sidebar a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
+    document.querySelectorAll('main, section').forEach(sec => sec.style.display = 'none');
+    document.getElementById('home').style.display = 'block';
 
-        document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
-        this.classList.add('active');
+    document.querySelectorAll('.sidebar a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+            this.classList.add('active');
 
-        document.querySelectorAll('main, section').forEach(sec => sec.style.display = 'none');
+            document.querySelectorAll('main, section').forEach(sec => sec.style.display = 'none');
 
-        const targetId = this.getAttribute('href').substring(1);
-        const targetSection = document.getElementById(targetId);
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
 
-        if (targetId === "home") {
-            targetSection.style.display = "block";
-        } else {
-            targetSection.style.display = "flex";
-        }
+            if (targetId === "home") {
+                targetSection.style.display = "block";
+            } else {
+                targetSection.style.display = "flex";
+            }
+        });
     });
 });
