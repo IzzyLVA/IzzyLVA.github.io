@@ -53,3 +53,36 @@ window.addEventListener('resize', () => {
 
 initParticles();
 animate();
+
+document.addEventListener("DOMContentLoaded", () => {
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+    const nameElement = document.getElementById("scrambleName");
+    const originalText = nameElement.textContent;
+
+    function scrambleText() {
+        let iteration = 0;
+        const interval = setInterval(() => {
+            nameElement.textContent = originalText
+                .split("")
+                .map((letter, index) => {
+                    if (index < iteration) {
+                        return originalText[index];
+                    }
+                    return letters[Math.floor(Math.random() * letters.length)];
+                })
+                .join("");
+
+            if (iteration >= originalText.length) {
+                clearInterval(interval);
+            }
+
+            iteration += 1 / 2; // Adjust speed here
+        }, 50);
+    }
+
+    // Scramble on load
+    scrambleText();
+
+    // Scramble on hover
+    nameElement.addEventListener("mouseenter", scrambleText);
+});
