@@ -210,62 +210,53 @@ main, section {
 
 #about {
     display: none;
-    align-items: center;
-    justify-content: center;
     min-height: 80vh;
     padding: 80px 20px;
-    color: cyan;
     background: black;
-    overflow: hidden;
+    color: cyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .about-container {
     display: flex;
-    align-items: center;
-    max-width: 1000px;
-    gap: 60px;
     flex-wrap: wrap;
+    gap: 60px;
+    max-width: 1000px;
+    align-items: center;
 }
 
 .about-text {
-    flex: 1;
-    min-width: 300px;
-    max-width: 600px;
+    max-width: 550px;
     text-align: left;
-    padding-left: 20px;
     opacity: 0;
-    animation: slideInText 1s ease forwards;
+    animation: slideInText 1s forwards;
     animation-delay: 0.5s;
-}
-
-.about-text h2 {
-    font-size: 3rem;
-    color: cyan;
-    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
-    margin-bottom: 20px;
-}
-
-.about-text p {
-    font-size: 1.3rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    text-shadow: 0 0 5px cyan;
 }
 
 .about-image {
     opacity: 0;
-    animation: slideInImage 1s ease forwards;
+    animation: slideInImage 1s forwards;
     animation-delay: 0.8s;
 }
 
 .about-image img {
     width: 300px;
-    height: auto;
     border-radius: 15px;
     border: 2px solid cyan;
     box-shadow: 0 0 10px cyan, 0 0 20px cyan;
     object-fit: cover;
-    transition: box-shadow 0.3s ease;
+}
+
+@keyframes slideInText {
+    from { transform: translateX(-80px); opacity: 0; }
+    to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInImage {
+    from { transform: translateX(80px); opacity: 0; }
+    to   { transform: translateX(0); opacity: 1; }
 }
 
 .about-image img:hover {
