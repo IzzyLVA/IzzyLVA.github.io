@@ -175,5 +175,81 @@ main, section {
     box-shadow: 0 0 20px cyan, 0 0 40px cyan;
 }
 
+#about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 80px 20px;
+    color: cyan;
+    background: black;
+    overflow: hidden;
+}
 
+.about-container {
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    gap: 60px;
+    flex-wrap: wrap;
+}
 
+.about-text {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    opacity: 0;
+    animation: slideInText 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+.about-text h2 {
+    font-size: 3rem;
+    color: cyan;
+    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px cyan;
+}
+
+.about-image {
+    opacity: 0;
+    animation: slideInImage 1s ease forwards;
+    animation-delay: 0.8s;
+}
+
+.about-image img {
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+    border: 2px solid cyan;
+    box-shadow: 0 0 10px cyan, 0 0 20px cyan;
+    object-fit: cover;
+}
+
+@keyframes slideInText {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInImage {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
