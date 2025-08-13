@@ -96,6 +96,12 @@ document.querySelectorAll('.sidebar a').forEach(link => {
         document.querySelectorAll('main, section').forEach(sec => sec.style.display = 'none');
 
         const targetId = this.getAttribute('href').substring(1);
-        document.getElementById(targetId).style.display = 'block';
+        const targetSection = document.getElementById(targetId);
+
+        if (targetId === "home") {
+            targetSection.style.display = "block";
+        } else {
+            targetSection.style.display = "flex";
+        }
     });
 });
