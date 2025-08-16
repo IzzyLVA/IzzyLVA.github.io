@@ -553,3 +553,16 @@ body::-webkit-scrollbar {
     display: none;
   }
 }
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    gap: 30px;
+    padding: 0 10px;
+  }
+}
