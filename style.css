@@ -1,213 +1,139 @@
-/* === BASE STYLES === */
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #111;
-    color: #fff;
-    overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #00ffff;
+  overflow-x: hidden;
 }
 
 /* Sidebar */
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 220px;
-    height: 100%;
-    background-color: rgba(0,0,0,0.85);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    z-index: 1000;
-    transition: width 0.3s ease;
+  width: 250px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 2rem;
+  z-index: 1000;
 }
 .sidebar a {
-    text-decoration: none;
-    color: #fff;
-    margin: 15px 0;
-    font-size: 18px;
-    transition: transform 0.2s ease, color 0.2s ease;
+  display: block;
+  color: #00ffff;
+  text-decoration: none;
+  padding: 1rem;
+  transition: background 0.3s;
 }
 .sidebar a:hover {
-    color: #ff4081;
-    transform: scale(1.1);
+  background: rgba(0, 255, 255, 0.2);
 }
 
 /* Sections */
-section {
-    min-height: 100vh;
-    padding: 60px 40px;
-    margin-left: 220px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    text-align: center;
+.section {
+  min-height: 100vh;
+  padding: 2rem;
+  margin-left: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  color: #00ffff;
 }
 
-/* About Section */
-.about-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1000px;
-    gap: 30px;
+/* Home text centered */
+#home {
+  flex-direction: column;
+  text-align: center;
+}
+
+/* About with text + image */
+.about-section {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
 }
 .about-text {
-    flex: 1;
-    font-size: 1.2rem;
-    line-height: 1.6;
+  flex: 1;
+  font-size: 1.2rem;
 }
 .about-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+  flex: 1;
+  max-width: 300px;
 }
 .about-image img {
-    max-width: 100%;
-    border-radius: 10px;
+  width: 100%;
+  border-radius: 10px;
 }
 
-/* Portfolio Section */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    width: 100%;
-    max-width: 1000px;
+/* Portfolio + Contact waffle grid */
+.portfolio-grid, .contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
 }
-.portfolio-card {
-    background-color: #222;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    transition: transform 0.2s ease;
+.portfolio-card, .contact-card {
+  background: #00ffff;
+  color: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s;
 }
-.portfolio-card:hover {
-    transform: scale(1.05);
+.portfolio-card:hover, .contact-card:hover {
+  transform: translateY(-5px);
 }
-.portfolio-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+.portfolio-card img, .contact-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 .project-title {
-    padding: 15px;
-    font-size: 1.2rem;
-    font-weight: bold;
+  display: block;
+  padding: 1rem;
+  font-weight: bold;
 }
 
-/* Contact Section */
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    width: 100%;
-    max-width: 800px;
-}
-.contact-card {
-    background-color: #222;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.2s ease;
-}
-.contact-card:hover {
-    transform: scale(1.05);
-}
-.contact-card img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
-    object-fit: contain;
-}
-.contact-card a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1rem;
-}
-
-/* === MOBILE OPTIMIZATION === */
-
-/* Tablets & small laptops */
+/* Responsive */
 @media (max-width: 768px) {
-    .sidebar {
-        width: 180px;
-    }
-    section {
-        margin-left: 180px;
-        padding: 40px 20px;
-    }
-    section h2 {
-        font-size: 2rem;
-    }
-
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .about-text {
-        font-size: 1rem;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    .portfolio-card img {
-        height: 160px;
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr 1fr;
-    }
+  .sidebar {
+    width: 200px;
+  }
+  .about-section {
+    flex-direction: column;
+  }
+  .section {
+    margin-left: 200px;
+  }
 }
 
-/* Phones */
 @media (max-width: 480px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 10px 0;
-        position: fixed;
-        bottom: 0;
-        top: auto;
-    }
-    section {
-        margin-left: 0;
-        padding: 60px 15px 100px; /* space for bottom bar */
-    }
-    section h2 {
-        font-size: 1.6rem;
-    }
-
-    .about-container {
-        gap: 20px;
-    }
-    .about-text {
-        font-size: 0.95rem;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-    .portfolio-card img {
-        height: 150px;
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    .contact-card img {
-        width: 50px;
-        height: 50px;
-    }
+  .sidebar {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem;
+  }
+  .section {
+    margin-left: 0;
+    padding-top: 4rem;
+  }
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .portfolio-grid, .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
