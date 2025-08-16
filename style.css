@@ -403,3 +403,92 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    overflow-x: hidden;
+  }
+
+  .sidebar {
+    left: -70px;
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .sidebar a {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .center-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .center-content p {
+    font-size: 1.2rem;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .about-text {
+    max-width: 90%;
+    font-size: 1rem;
+  }
+
+  .about-image img {
+    max-width: 80%;
+    height: auto;
+  }
+
+  .portfolio-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .portfolio-card,
+  .contact-card {
+    max-width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .portfolio-card img,
+  .contact-card img {
+    height: auto;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .center-content h1 {
+    font-size: 2rem;
+  }
+
+  .center-content p {
+    font-size: 1rem;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+  }
+
+  .portfolio-card,
+  .contact-card {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+
+  .portfolio-card img,
+  .contact-card img {
+    max-height: 180px;
+  }
+}
