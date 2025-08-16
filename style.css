@@ -555,14 +555,9 @@ body::-webkit-scrollbar {
 }
 
 @media (max-width: 768px) {
-  .contact-section {
+  #about, #portfolio, #contact {
+    min-height: auto;
+    max-height: none;
     padding-top: 100px;
-  }
-}
-
-@media (max-width: 768px) {
-  .contact-grid {
-    gap: 30px;
-    padding: 0 10px;
   }
 }
