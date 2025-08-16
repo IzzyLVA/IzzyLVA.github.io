@@ -359,11 +359,36 @@ main, section {
 }
 
 
-section {
+#about, #portfolio, #contact {
     min-height: 100vh;
     max-height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
     box-sizing: border-box;
     padding: 40px;
+}
+
+#about::-webkit-scrollbar,
+#portfolio::-webkit-scrollbar,
+#contact::-webkit-scrollbar {
+    width: 6px;
+}
+
+#about::-webkit-scrollbar-track,
+#portfolio::-webkit-scrollbar-track,
+#contact::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#about::-webkit-scrollbar-thumb,
+#portfolio::-webkit-scrollbar-thumb,
+#contact::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+#about::-webkit-scrollbar-thumb:hover,
+#portfolio::-webkit-scrollbar-thumb:hover,
+#contact::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
 }
