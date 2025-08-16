@@ -357,3 +357,13 @@ main, section {
         font-size: 1.5rem;
     }
 }
+
+
+section {
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    padding: 40px;
+}
