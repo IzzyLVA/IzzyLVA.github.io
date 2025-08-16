@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 .join("");
 
             if (iteration >= originalText.length) clearInterval(interval);
-            iteration += 1 / 2;
+            iteration += 1;
         }, 50);
     }
 
@@ -101,3 +101,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
