@@ -403,3 +403,50 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px;
+    font-size: 14px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .about-container img {
+    max-width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .sidebar {
+    width: 50px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .portfolio-card img, 
+  .contact-card img {
+    max-width: 100%;
+    height: auto;
+  }
+}
