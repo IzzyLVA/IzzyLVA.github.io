@@ -492,3 +492,14 @@ body::-webkit-scrollbar {
     max-height: 180px;
   }
 }
+
+@media (max-width: 768px) {
+  #about {
+    padding: 40px 15px;
+    min-height: auto;
+  }
+
+  .about-container {
+    margin-top: 20px;
+  }
+}
