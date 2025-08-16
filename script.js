@@ -72,8 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 .join("");
 
             if (iteration >= originalText.length) clearInterval(interval);
-            iteration += 1 / 1.5; // faster scramble
-        }, 40); // faster speed
+            iteration += 1 / 1.5; 
+        }, 40); 
     }
 
     scrambleText();
@@ -83,8 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('home').style.display = 'block';
 
     function handleNavigation(targetId) {
-        document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
-        const targetLink = document.querySelector(`.sidebar a[href="#${targetId}"]`);
+        document.querySelectorAll('.sidebar a, .mobile-menu a').forEach(a => a.classList.remove('active'));
+        const targetLink = document.querySelector(`a[href="#${targetId}"]`);
         if (targetLink) targetLink.classList.add('active');
 
         document.querySelectorAll('main, section').forEach(sec => sec.style.display = 'none');
@@ -96,42 +96,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    document.querySelectorAll('.sidebar a').forEach(link => {
+    document.querySelectorAll('.sidebar a, .mobile-menu a').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             handleNavigation(targetId);
 
-            // Close waffle menu on mobile after click
             if (window.innerWidth <= 768) {
                 document.querySelector('.mobile-menu').classList.remove('active');
             }
         });
     });
 
-    // === Waffle Menu for Mobile ===
-    const waffleBtn = document.createElement("div");
-    waffleBtn.classList.add("waffle-btn");
-    waffleBtn.innerHTML = "&#9776;"; // hamburger icon
-    document.body.appendChild(waffleBtn);
+    const toggle = document.querySelector(".mobile-menu-toggle");
+    const mobileMenu = document.querySelector(".mobile-menu");
 
-    const sidebar = document.querySelector(".sidebar");
-    const mobileMenu = document.createElement("div");
-    mobileMenu.classList.add("mobile-menu");
-    mobileMenu.innerHTML = sidebar.innerHTML;
-    document.body.appendChild(mobileMenu);
-
-    waffleBtn.addEventListener("click", () => {
+    toggle.addEventListener("click", () => {
         mobileMenu.classList.toggle("active");
-    });
-
-    // Handle mobile nav clicks
-    mobileMenu.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute("href").substring(1);
-            handleNavigation(targetId);
-            mobileMenu.classList.remove("active");
-        });
     });
 });
