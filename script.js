@@ -72,8 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 .join("");
 
             if (iteration >= originalText.length) clearInterval(interval);
-            iteration += 1;
-        }, 50);
+            iteration += 1 / 1.5; // faster scramble
+        }, 40); // faster speed
     }
 
     scrambleText();
@@ -82,23 +82,56 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('main, section').forEach(sec => sec.style.display = 'none');
     document.getElementById('home').style.display = 'block';
 
+    function handleNavigation(targetId) {
+        document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+        const targetLink = document.querySelector(`.sidebar a[href="#${targetId}"]`);
+        if (targetLink) targetLink.classList.add('active');
+
+        document.querySelectorAll('main, section').forEach(sec => sec.style.display = 'none');
+        const targetSection = document.getElementById(targetId);
+        if (targetId === "home") {
+            targetSection.style.display = "block";
+        } else {
+            targetSection.style.display = "flex";
+        }
+    }
+
     document.querySelectorAll('.sidebar a').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
-            this.classList.add('active');
-
-            document.querySelectorAll('main, section').forEach(sec => sec.style.display = 'none');
-
             const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
+            handleNavigation(targetId);
 
-            if (targetId === "home") {
-                targetSection.style.display = "block";
-            } else {
-                targetSection.style.display = "flex";
+            // Close waffle menu on mobile after click
+            if (window.innerWidth <= 768) {
+                document.querySelector('.mobile-menu').classList.remove('active');
             }
         });
     });
-});
 
+    // === Waffle Menu for Mobile ===
+    const waffleBtn = document.createElement("div");
+    waffleBtn.classList.add("waffle-btn");
+    waffleBtn.innerHTML = "&#9776;"; // hamburger icon
+    document.body.appendChild(waffleBtn);
+
+    const sidebar = document.querySelector(".sidebar");
+    const mobileMenu = document.createElement("div");
+    mobileMenu.classList.add("mobile-menu");
+    mobileMenu.innerHTML = sidebar.innerHTML;
+    document.body.appendChild(mobileMenu);
+
+    waffleBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+    });
+
+    // Handle mobile nav clicks
+    mobileMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            handleNavigation(targetId);
+            mobileMenu.classList.remove("active");
+        });
+    });
+});
