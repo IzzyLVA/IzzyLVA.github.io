@@ -1,139 +1,334 @@
-/* Base reset */
+/* ========== Reset ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ========== Base ========== */
 body {
-  font-family: Arial, sans-serif;
-  background: #111;
-  color: #00ffff;
-  overflow-x: hidden;
+  background: #000;
+  color: cyan;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden; /* prevent page scroll; sections will scroll internally */
 }
 
-/* Sidebar */
-.sidebar {
-  width: 250px;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding-top: 2rem;
-  z-index: 1000;
+/* Hide everything by default; JS shows one at a time */
+main, section { display: none; }
+#home { display: block; }
+
+/* Particles behind everything */
+#particles {
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
 }
+
+/* ========== Sidebar (slide-out) ========== */
+.sidebar {
+  position: fixed;
+  left: -120px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  border-right: 2px solid cyan;
+  transition: left 0.3s ease;
+  z-index: 10;
+}
+.sidebar:hover { left: 0; }
+
 .sidebar a {
-  display: block;
-  color: #00ffff;
   text-decoration: none;
-  padding: 1rem;
-  transition: background 0.3s;
+  color: cyan;
+  padding: 16px 25px;
+  border: 2px solid cyan;
+  font-weight: bold;
+  background: rgba(0, 255, 255, 0.05);
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s, color 0.3s;
+  font-size: 1.1rem;
 }
 .sidebar a:hover {
-  background: rgba(0, 255, 255, 0.2);
+  transform: scale(1.2);
+  background: cyan;
+  color: #000;
+  box-shadow: 0 0 15px cyan, 0 0 25px cyan;
+}
+.sidebar a.active {
+  background: cyan;
+  color: #000;
+  box-shadow: 0 0 10px cyan, 0 0 20px cyan;
 }
 
-/* Sections */
-.section {
-  min-height: 100vh;
-  padding: 2rem;
-  margin-left: 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #111;
-  color: #00ffff;
-}
-
-/* Home text centered */
-#home {
-  flex-direction: column;
+/* ========== Home (centered hero) ========== */
+.center-content {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
+  opacity: 0;
+  animation: fadeUp 1.2s ease forwards;
+  animation-delay: 1s;
+}
+.center-content h1 {
+  font-size: 5rem;
+  text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 30px cyan;
+}
+.center-content p {
+  margin-top: 15px;
+  font-size: 2rem;
+  text-shadow: 0 0 5px cyan, 0 0 10px cyan;
 }
 
-/* About with text + image */
-.about-section {
+@keyframes fadeUp {
+  from { transform: translate(-50%, -40%); opacity: 0; }
+  to   { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+/* ========== About ========== */
+/* IMPORTANT: Do NOT set display:flex on #about (JS controls display). */
+#about {
+  min-height: 100vh;
+  padding: 80px 20px;
+  color: cyan;
+  background: #000;
+}
+
+.about-container {
   display: flex;
-  gap: 2rem;
   align-items: center;
   justify-content: center;
+  gap: 60px;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
+
 .about-text {
   flex: 1;
+  min-width: 300px;
+  max-width: 550px;
+  text-align: left;
+  opacity: 0;
+  animation: slideInText 0.8s forwards;
+  animation-delay: 0.2s;
+}
+.about-text h2 {
+  font-size: 3rem;
+  color: cyan;
+  text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+  margin-bottom: 20px;
+}
+.about-text p {
   font-size: 1.2rem;
-}
-.about-image {
-  flex: 1;
-  max-width: 300px;
-}
-.about-image img {
-  width: 100%;
-  border-radius: 10px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-shadow: 0 0 5px cyan;
 }
 
-/* Portfolio + Contact waffle grid */
-.portfolio-grid, .contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 1000px;
-  margin: auto;
+.about-image {
+  flex-shrink: 0;
+  opacity: 0;
+  animation: slideInImage 0.8s forwards;
+  animation-delay: 0.4s;
 }
-.portfolio-card, .contact-card {
-  background: #00ffff;
-  color: #111;
-  border-radius: 12px;
-  overflow: hidden;
+.about-image img {
+  width: 300px; height: auto;
+  border-radius: 15px;
+  border: 2px solid cyan;
+  box-shadow: 0 0 10px cyan, 0 0 20px cyan;
+  object-fit: cover;
+  transition: box-shadow 0.3s ease;
+}
+.about-image img:hover {
+  box-shadow: 0 0 20px cyan, 0 0 40px cyan, 0 0 60px cyan;
+}
+
+@keyframes slideInText {
+  from { transform: translateX(-60px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInImage {
+  from { transform: translateX(60px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+/* ========== Portfolio ========== */
+#portfolio {
+  min-height: 100vh;
+  padding: 60px 20px;
+  color: cyan;
+  background: #000;
   text-align: center;
-  transition: transform 0.3s;
 }
-.portfolio-card:hover, .contact-card:hover {
-  transform: translateY(-5px);
+.portfolio-section h2 {
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px cyan;
+  margin-bottom: 40px;
 }
-.portfolio-card img, .contact-card img {
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.portfolio-card {
+  position: relative;
+  border: 2px solid cyan;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: cyan;
+  background: #000;
+  box-shadow: 0 0 10px cyan;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.portfolio-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  filter: grayscale(50%) brightness(80%);
+  transition: filter 0.3s;
 }
+.portfolio-card:hover img { filter: grayscale(0%) brightness(100%); }
+
 .project-title {
-  display: block;
-  padding: 1rem;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 255, 255, 0.15);
+  padding: 6px 12px;
+  color: cyan;
   font-weight: bold;
+  text-shadow: 0 0 5px cyan;
+  border: 1px solid cyan;
 }
 
-/* Responsive */
+.portfolio-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px cyan, 0 0 40px cyan;
+}
+
+/* ========== Contact ========== */
+#contact {
+  min-height: 100vh;
+  padding: 80px 20px;
+  color: cyan;
+  background: #000;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 32px;
+  text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  border: 2px solid cyan;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: cyan;
+  background: #000;
+  box-shadow: 0 0 10px cyan;
+  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 16px;
+  border-radius: 10px;
+}
+.contact-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  transition: transform 0.3s;
+}
+.contact-card:hover img { transform: scale(1.06); }
+.contact-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: cyan;
+  text-shadow: 0 0 5px cyan;
+}
+.contact-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px cyan, 0 0 40px cyan;
+}
+
+/* ========== Section Scrolling (only if needed) + Hide scrollbars ========== */
+#about, #portfolio, #contact {
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;    /* scroll only inside section */
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Hide scrollbars but keep scroll working */
+#about, #portfolio, #contact {
+  scrollbar-width: none;         /* Firefox */
+  -ms-overflow-style: none;      /* IE/Edge legacy */
+}
+#about::-webkit-scrollbar,
+#portfolio::-webkit-scrollbar,
+#contact::-webkit-scrollbar {
+  display: none;                 /* Chrome/Safari/Opera/Edge (Chromium) */
+}
+
+/* ========== Responsive ========== */
+/* Tablet */
 @media (max-width: 768px) {
-  .sidebar {
-    width: 200px;
-  }
-  .about-section {
-    flex-direction: column;
-  }
-  .section {
-    margin-left: 200px;
-  }
+  .sidebar { left: -80px; padding: 12px; gap: 18px; }
+  .sidebar a { padding: 12px 16px; font-size: 1rem; }
+
+  .center-content h1 { font-size: 3.2rem; }
+  .center-content p  { font-size: 1.4rem; }
+
+  .about-container { gap: 30px; }
+  .about-text h2 { font-size: 2.2rem; }
+  .about-text p  { font-size: 1.05rem; }
+  .about-image img { width: 240px; }
+
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .contact-grid   { grid-template-columns: repeat(2, 1fr); gap: 16px; }
 }
 
+/* Phones */
 @media (max-width: 480px) {
-  .sidebar {
-    position: fixed;
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: space-around;
-    padding: 0.5rem;
-  }
-  .section {
-    margin-left: 0;
-    padding-top: 4rem;
-  }
-  .about-section {
-    flex-direction: column;
-    text-align: center;
-  }
-  .portfolio-grid, .contact-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+  .sidebar { left: -60px; gap: 14px; }
+  .sidebar a { padding: 10px 14px; font-size: 0.95rem; }
+
+  .center-content h1 { font-size: 2.4rem; }
+  .center-content p  { font-size: 1.1rem; }
+
+  .about-container { flex-direction: column; text-align: center; }
+  .about-text { max-width: 95%; }
+  .about-image img { width: 200px; }
+
+  /* Mobile waffle: 1 or 2 columns depending on width */
+  .portfolio-grid { grid-template-columns: 1fr; gap: 14px; }
+  .contact-grid   { grid-template-columns: 1fr; gap: 14px; }
 }
