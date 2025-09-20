@@ -21,7 +21,7 @@ function initParticles() {
 
 function drawParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "cyan";
+    ctx.fillStyle = "purple";
     particles.forEach(p => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
@@ -115,3 +115,4 @@ document.addEventListener("DOMContentLoaded", () => {
         mobileMenu.classList.toggle("active");
     });
 });
+
