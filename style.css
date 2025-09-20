@@ -6,7 +6,7 @@
 
 body {
     background: black;
-    color: cyan;
+    color: purple;
     font-family: 'Segoe UI', sans-serif;
     overflow: hidden;
 }
@@ -38,7 +38,7 @@ main, section {
     gap: 20px;
     background: rgba(0, 0, 0, 0.6);
     padding: 10px;
-    border-right: 2px solid cyan;
+    border-right: 2px solid purple;
     transition: left 0.3s ease;
     z-index: 10;
 }
@@ -53,16 +53,16 @@ main, section {
     gap: 25px;
     background: rgba(0, 0, 0, 0.6);
     padding: 15px 15px;
-    border-right: 2px solid cyan;
+    border-right: 2px solid purple;
     transition: left 0.3s ease;
     z-index: 10;
 }
 
 .sidebar a {
     text-decoration: none;
-    color: cyan;
+    color: purple;
     padding: 16px 25px;
-    border: 2px solid cyan;
+    border: 2px solid purple;
     font-weight: bold;
     background: rgba(0, 255, 255, 0.05);
     transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
@@ -75,9 +75,9 @@ main, section {
 
 
 .sidebar a.active {
-    background: cyan;
+    background: purple;
     color: black;
-    box-shadow: 0 0 10px cyan, 0 0 20px cyan;
+    box-shadow: 0 0 10px purple, 0 0 20px purple;
 }
 
 .center-content {
@@ -93,13 +93,13 @@ main, section {
 
 .center-content h1 {
     font-size: 5rem;
-    text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 30px cyan;
+    text-shadow: 0 0 10px purple, 0 0 20px purple, 0 0 30px purple;
 }
 
 .center-content p {
     margin-top: 15px;
     font-size: 2rem;
-    text-shadow: 0 0 5px cyan, 0 0 10px cyan;
+    text-shadow: 0 0 5px purple, 0 0 10px purple;
 }
 
 @keyframes fadeUp {
@@ -121,7 +121,7 @@ main, section {
     display: none;
     min-height: 80vh;
     padding: 80px 20px;
-    color: cyan;
+    color: purple;
     background: black;
 
     display: flex;
@@ -153,8 +153,8 @@ main, section {
 
 .about-text h2 {
     font-size: 3rem;
-    color: cyan;
-    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+    color: purple;
+    text-shadow: 0 0 10px purple, 0 0 20px purple;
     margin-bottom: 20px;
 }
 
@@ -162,7 +162,7 @@ main, section {
     font-size: 1.3rem;
     line-height: 1.6;
     margin-bottom: 15px;
-    text-shadow: 0 0 5px cyan;
+    text-shadow: 0 0 5px purple;
 }
 
 .about-image {
@@ -176,14 +176,14 @@ main, section {
     width: 300px;
     height: auto;
     border-radius: 15px;
-    border: 2px solid cyan;
-    box-shadow: 0 0 10px cyan, 0 0 20px cyan;
+    border: 2px solid purple;
+    box-shadow: 0 0 10px purple, 0 0 20px purple;
     object-fit: cover;
     transition: box-shadow 0.3s ease;
 }
 
 .about-image img:hover {
-    box-shadow: 0 0 20px cyan, 0 0 40px cyan, 0 0 60px cyan;
+    box-shadow: 0 0 20px purple, 0 0 40px purple, 0 0 60px purple;
 }
 
 .portfolio-section {
@@ -191,12 +191,12 @@ main, section {
     flex-direction: column;
     align-items: center;
     padding: 60px 20px;
-    color: cyan;
+    color: purple;
 }
 
 .portfolio-section h2 {
     font-size: 2.5rem;
-    text-shadow: 0 0 10px cyan;
+    text-shadow: 0 0 10px purple;
     margin-bottom: 40px;
     text-align: center;
 }
@@ -210,13 +210,13 @@ main, section {
 }
 
 .portfolio-card {
-    border: 2px solid cyan;
+    border: 2px solid purple;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    box-shadow: 0 0 10px cyan;
+    box-shadow: 0 0 10px purple;
     transition: transform 0.3s, box-shadow 0.3s;
     background: black;
     width: 100%;
@@ -238,17 +238,17 @@ main, section {
 .project-title {
     background: rgba(0, 255, 255, 0.15);
     padding: 5px 10px;
-    color: cyan;
+    color: purple;
     font-weight: bold;
-    text-shadow: 0 0 5px cyan;
-    border: 1px solid cyan;
+    text-shadow: 0 0 5px purple;
+    border: 1px solid purple;
     margin-top: -35px;
     z-index: 2;
 }
 
 .portfolio-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px cyan, 0 0 40px cyan;
+    box-shadow: 0 0 20px purple, 0 0 40px purple;
 }
 
 
@@ -256,7 +256,7 @@ main, section {
     display: none;
     min-height: 80vh;
     padding: 80px 20px;
-    color: cyan;
+    color: purple;
     background: black;
 
     display: flex;
@@ -269,7 +269,7 @@ main, section {
 .contact-section h2 {
     font-size: 3rem;
     margin-bottom: 40px;
-    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+    text-shadow: 0 0 10px purple, 0 0 20px purple;
 }
 
 .contact-grid {
@@ -281,13 +281,13 @@ main, section {
 }
 
 .contact-card {
-    border: 2px solid cyan;
+    border: 2px solid purple;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    box-shadow: 0 0 10px cyan;
+    box-shadow: 0 0 10px purple;
     transition: transform 0.3s, box-shadow 0.3s;
     background: black;
     width: 100%;
@@ -313,13 +313,13 @@ main, section {
 .contact-title {
     font-size: 1.3rem;
     font-weight: bold;
-    color: cyan;
-    text-shadow: 0 0 5px cyan;
+    color: purple;
+    text-shadow: 0 0 5px purple;
 }
 
 .contact-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px cyan, 0 0 40px cyan;
+    box-shadow: 0 0 20px purple, 0 0 40px purple;
 }
 
 @media (max-width: 768px) {
@@ -458,10 +458,10 @@ body::-webkit-scrollbar {
     top: 15px;
     right: 20px;
     font-size: 2rem;
-    color: cyan;
+    color: purple;
     cursor: pointer;
     z-index: 1001;
-    text-shadow: 0 0 10px cyan;
+    text-shadow: 0 0 10px purple;
   }
 
   .mobile-menu {
@@ -481,9 +481,9 @@ body::-webkit-scrollbar {
 
   .mobile-menu a {
     text-decoration: none;
-    color: cyan;
+    color: purple;
     padding: 12px;
-    border: 2px solid cyan;
+    border: 2px solid purple;
     font-weight: bold;
     text-align: center;
     background: rgba(0, 255, 255, 0.05);
@@ -492,7 +492,7 @@ body::-webkit-scrollbar {
 
   .mobile-menu a:hover {
     transform: scale(1.05);
-    background: cyan;
+    background: purple;
     color: black;
   }
 
@@ -504,7 +504,7 @@ body::-webkit-scrollbar {
 .mobile-menu-toggle {
   display: none;
   font-size: 2rem;
-  color: cyan;
+  color: purple;
   position: fixed;
   top: 20px;
   left: 20px;
@@ -520,7 +520,7 @@ body::-webkit-scrollbar {
   width: 200px;
   height: 100%;
   background: rgba(0, 0, 0, 0.9);
-  border-right: 2px solid cyan;
+  border-right: 2px solid purple;
   padding-top: 60px;
   transition: left 0.3s ease;
   z-index: 1500;
@@ -530,13 +530,13 @@ body::-webkit-scrollbar {
 .mobile-menu a {
   display: block;
   padding: 15px;
-  color: cyan;
+  color: purple;
   text-decoration: none;
-  border-bottom: 1px solid cyan;
+  border-bottom: 1px solid purple;
 }
 
 .mobile-menu a.active {
-  background: cyan;
+  background: purple;
   color: black;
 }
 
@@ -561,3 +561,4 @@ body::-webkit-scrollbar {
     padding-top: 100px;
   }
 }
+
